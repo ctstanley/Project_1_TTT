@@ -15,7 +15,7 @@ This file is where you will document your project.
 
 
 ### Technologies Used
-*What technologies did you use while developing this project?*
+*Bootstrap
 
 ###Existing features
 *What features does your new tic-tac-toe app have?*
