@@ -1,15 +1,16 @@
-// OOP Tic Tac Toe boilerplate code
-
 // Execute this code only AFTER the document is ready
-// Hint: use jQuery's `$(document).ready`
+$(document).ready(function() {
+  alert("Ya ya")
+
+
 
   function Game() {
-    //Create a new instance of player 1
-    //this.player1 = ...
-
-    //Do the same for a player 2
-    //this.player2 = ...
-    
+    //Create a new instance of player 1 & 2
+    this.player1 = x;
+    this.player2 = o;
+    this.board = (function(){
+      $("")
+    })();
     //Create the board
     //this.board = ...
   }
@@ -41,3 +42,5 @@
   // Start the game!
   var game = new Game();
   game.init();
+
+  });
