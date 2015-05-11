@@ -40,6 +40,7 @@ $(document).ready(function() {
     var xArr = [];
     var yArr = [];
     var ya = 0;
+    var catsss = "Kittens.jpg";
     var Game = function() {
             //Create a new instance of player 1 & 2
             this.player1 = "X";
@@ -94,13 +95,11 @@ $(document).ready(function() {
     })
 }; Game.prototype.Kittens = function() {
     $("#kittens").click(function() {
-            $(".jumbotron").css({
-                    backgroundimage: url("http//www.roundpeg.biz/wp-content/uploads/2014/01/KittensLg.jpg"),
-                    });
+            $(".jumbotron").css('background-image', 'url(' + catsss + ')');
             $("#mittens").text("Tic Cat Toe");
             })
     };
-
+    // set background image to grass
     // // `Game.prototype.init` kicks off a new game with a board and two players
     // Game.prototype.init = function() {
     //     //
