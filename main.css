@@ -2,13 +2,6 @@
 .img-responsive .carousel {
 	height:400px;
 }
-.board {
-	height: auto;
-	width: auto;
-	background-color: #222222;
-	padding: 1px;
-	box-shadow: 10px 10px 5px #888888;
-}
 .square {
 	position: auto;
 	background: transparent;
@@ -16,6 +9,13 @@
 	height: 100px;
 }
 .table {
+	position: center;
 	height: 100%;
 	width: 100%;
+}
+h1 {
+	text-align: center;
+}
+.container {
+	height: 100%;
 }

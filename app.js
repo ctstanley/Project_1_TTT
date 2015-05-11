@@ -39,40 +39,68 @@ $(document).ready(function() {
     var turn = 0;
     var xArr = [];
     var yArr = [];
+    var ya = 0;
     var Game = function() {
             //Create a new instance of player 1 & 2
             this.player1 = "X";
             this.player2 = "O";
         }
-    // Game.prototype.Winner = function() {
-    //     if ($('.square').text() === "X") {
-    //         console.log($(".square").val())
-    //     } else {
-    //         console.log("dude")
-    //     }
-    // };
-    // Gives Turns and marks in the cells. Also populates two arrays for winner analysis.
+        // Game.prototype.Winner = function() {
+        //     if ($('.square').text() === "X") {
+        //         console.log($(".square").val())
+        //     } else {
+        //         console.log("dude")
+        //     }
+        // };
+        // Gives Turns and marks in the cells. Also populates two arrays for winner analysis, forgive the long conditional.
     Game.prototype.nextPlayer = function(game) {
         $('.square').click(function() {
-            var $this = $(this);
-            if ($this.text() !== "O" && $this.text() !== "X" && turn === 0) {
-                $this.text("X");
-                turn += 1;
-                xArr.push(parseInt($this.val()));
-                console.log(xArr);
-            } else if ($this.text() !== "X" && $this.text() !== "O" && turn === 1) {
-                $this.text("O");
-                turn -= 1;
-                yArr.push(parseInt($this.val()));
-                console.log(yArr)
-            } else {
-                alert("Error")
-            };
+                var $this = $(this);
+                if ($this.text() !== "O" && $this.text() !== "X" && turn === 0) {
+                    $this.text("X");
+                    turn += 1;
+                    xArr.push(parseInt($this.val()));
+                    if (xArr[0] + xArr[1] + xArr[2] === 15 || xArr[1] + xArr[2] + xArr[3] === 15 || xArr[0] + xArr[1] + xArr[3] === 15 || xArr[0] + xArr[2] + xArr[3] === 15 || xArr[0] + xArr[1] + xArr[4] === 15 || xArr[0] + xArr[2] + xArr[4] === 15 || xArr[0] + xArr[3] + xArr[4] === 15 || xArr[1] + xArr[3] + xArr[4] === 15 || xArr[2] + xArr[3] + xArr[4] === 15) {
+                        alert("X Wins!");
+                    } else if (ya === 9) {
+                    alert("Tie!");
+                    } else {
+                        ya = ya + 1;
+                    }
+                    // console.log(xArr);
+                } else if ($this.text() !== "X" && $this.text() !== "O" && turn === 1) {
+                    $this.text("O");
+                    turn -= 1;
+                    yArr.push(parseInt($this.val()));
+                    if (yArr[0] + yArr[1] + yArr[2] === 15 || yArr[1] + yArr[2] + yArr[3] === 15 || yArr[0] + yArr[1] + yArr[3] === 15 || yArr[0] + yArr[2] + yArr[3] === 15) {
+                        alert("O Wins!");
+                    } else if (ya === 9) {
+                    alert("Tie!");
+                    } else {
+                        ya = ya + 1;
+                        // console.log(ya);
+                    }
+                };
         }
-        );
+    );
+    };
+    Game.prototype.Reset = function() {
+    $("#reset").click(function() {
+        $(".square").html("&nbsp;");
+        turn = 0;
+        ya = 0;
+        xArr = [];
+        yArr = [];
+    })
+}; Game.prototype.Kittens = function() {
+    $("#kittens").click(function() {
+            $(".jumbotron").css({
+                    backgroundimage: url("http//www.roundpeg.biz/wp-content/uploads/2014/01/KittensLg.jpg"),
+                    });
+            $("#mittens").text("Tic Cat Toe");
+            })
     };
 
-    
     // // `Game.prototype.init` kicks off a new game with a board and two players
     // Game.prototype.init = function() {
     //     //
@@ -84,6 +112,8 @@ $(document).ready(function() {
     // };
     game = new Game();
     game.nextPlayer(game);
+    game.Reset();
+    game.Kittens();
     // game.Winner();
     //Tracks the cells of the board instance
     //this.$cells = ...

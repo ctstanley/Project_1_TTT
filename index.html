@@ -14,7 +14,7 @@
 <body>
       <!-- HTML Body -->
       <div class="jumbotron">
-      <h1>Tic Tac Toe</h1>
+      <h1 id="mittens">Tic Tac Toe</h1>
       <!-- Split button -->
         <div class="btn-group">
           <button type="button" class="btn btn-danger">Menu</button>
@@ -23,33 +23,32 @@
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">New Game</a></li>
-            <li><a href="#">Something else here!</a></li>
+            <li><a href="#">Made by Connor Stanley</a></li>
             <li class="divider"></li>
-            <li><a href="#">Kittens!</a></li>
+            <li><a href="#" id="kittens">Kittens!</a></li>
           </ul>
         </div>
     </div>
-  <div class="container-fluid">
+  <div class="container">
     <table class="table table-bordered table-hover">
       <tr class='row'>
-        <td class='square' id="a1" val="2">&nbsp;</td>
-        <td class='square' id="a2" val="7">&nbsp;</td>
-        <td class='square' id="a3" val="6">&nbsp;</td>
+        <td class='square' id="a1">&nbsp;</td>
+        <td class='square' id="a2">&nbsp;</td>
+        <td class='square' id="a3">&nbsp;</td>
       </tr>
       <tr class='row'>
-        <td class='square' id="b1" val="9">&nbsp;</td>
-        <td class='square' id="b2" val="5">&nbsp;</td>
-        <td class='square' id="b3" val="1">&nbsp;</td>
+        <td class='square' id="b1">&nbsp;</td>
+        <td class='square' id="b2">&nbsp;</td>
+        <td class='square' id="b3">&nbsp;</td>
       </tr>
       <tr class='row'>
-        <td class='square' id="c1" val="4">&nbsp;</td>
-        <td class='square' id="c2" val="3">&nbsp;</td>
-        <td class='square' id="c3" val="8">&nbsp;</td>
+        <td class='square' id="c1">&nbsp;</td>
+        <td class='square' id="c2">&nbsp;</td>
+        <td class='square' id="c3">&nbsp;</td>
       </tr>
     </table>
   </div> 
-  <button type="button" class="btn btn-default btn-lg" value='Reset'>
+  <button type="button" class="btn btn-default btn-lg" value='Reset' id = "reset">
     <span class="glyphicon glyphicon-repeat" aria-hidden="true">
     </span>Reset
   </button>
