@@ -17,7 +17,7 @@
 //             $(".row").append(tttDiv);
 //             $table.append(".row");
 //             $("<br>").append($table);
-            
+
 //         } else {
 //             $table.append(row);
 //             console.log("yoyo");
@@ -36,29 +36,43 @@ $(document).ready(function() {
     $("#c2").val("3");
     $("#c3").val("8");
     alert("Ya ya");
+    var turn = 0;
+    var xArr = [];
+    var yArr = [];
     var Game = function() {
-        //Create a new instance of player 1 & 2
-        //Create a new board
-        this.player1 = "X";
-        this.player2 = "O";
-        this.turn = 0;
-        this.nextPlayer = function nextPlayer() {
-        $('.square').click(function(){
+            //Create a new instance of player 1 & 2
+            this.player1 = "X";
+            this.player2 = "O";
+        }
+    // Game.prototype.Winner = function() {
+    //     if ($('.square').text() === "X") {
+    //         console.log($(".square").val())
+    //     } else {
+    //         console.log("dude")
+    //     }
+    // };
+    // Gives Turns and marks in the cells. Also populates two arrays for winner analysis.
+    Game.prototype.nextPlayer = function(game) {
+        $('.square').click(function() {
             var $this = $(this);
-            if ($this.text("&nbsp;")){
-                $this.text(this.player1);
-            }
-            else {
+            if ($this.text() !== "O" && $this.text() !== "X" && turn === 0) {
+                $this.text("X");
+                turn += 1;
+                xArr.push(parseInt($this.val()));
+                console.log(xArr);
+            } else if ($this.text() !== "X" && $this.text() !== "O" && turn === 1) {
+                $this.text("O");
+                turn -= 1;
+                yArr.push(parseInt($this.val()));
+                console.log(yArr)
+            } else {
                 alert("Error")
-            }
-        });
-        (this.turn = 0);
+            };
+        }
+        );
     };
-    };
-    // Remember: prototypes are shared functions between all game instances
-    // Game.prototype.nextPlayer = function() ;
 
-
+    
     // // `Game.prototype.init` kicks off a new game with a board and two players
     // Game.prototype.init = function() {
     //     //
@@ -68,15 +82,12 @@ $(document).ready(function() {
     // var Player = function(team) {
 
     // };
-
-
-
+    game = new Game();
+    game.nextPlayer(game);
+    // game.Winner();
     //Tracks the cells of the board instance
     //this.$cells = ...
 
     //Store any other properties that board may have below, such as a reset option
     // Start the game!
-    var game = new Game();
-    Game();
-
 });
