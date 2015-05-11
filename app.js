@@ -46,17 +46,11 @@ $(document).ready(function() {
             this.player1Wins = 0;
             this.player2Wins = 0;
         }
-        // make more features tomorrow, good Job!! :D
-        // Game.prototype.Winner = function() {
-        //     if ($('.square').text() === "X") {
-        //         console.log($(".square").val())
-        //     } else {
-        //         console.log("dude")
-        //     }
-        // };
         // Gives Turns and marks in the cells. Also populates two arrays for winner analysis, forgive the long conditional.
+        // But this method works using the same params as magic square, so thats cool. Also it has the capacity to store wins
+        // but didn't have enough time.
     Game.prototype.nextPlayer = function(game) {
-        $('.square').click(function() {
+        $('.square').click(function(game) {
                 var $this = $(this);
                 if ($this.text() !== "O" && $this.text() !== "X" && turn === 0) {
                     $this.text("X");
@@ -64,28 +58,31 @@ $(document).ready(function() {
                     xArr.push(parseInt($this.val()));
                     if (xArr[0] + xArr[1] + xArr[2] === 15 || xArr[1] + xArr[2] + xArr[3] === 15 || xArr[0] + xArr[1] + xArr[3] === 15 || xArr[0] + xArr[2] + xArr[3] === 15 || xArr[0] + xArr[1] + xArr[4] === 15 || xArr[0] + xArr[2] + xArr[4] === 15 || xArr[0] + xArr[3] + xArr[4] === 15 || xArr[1] + xArr[3] + xArr[4] === 15 || xArr[2] + xArr[3] + xArr[4] === 15) {
                         alert("X Wins!");
-                    } else if (ya === 9) {
-                    alert("Tie!");
+                        game.player1Wins += 1;
                     } else {
                         ya = ya + 1;
                     }
-                    // console.log(xArr);
+                     console.log(xArr);
                 } else if ($this.text() !== "X" && $this.text() !== "O" && turn === 1) {
                     $this.text("O");
                     turn -= 1;
                     yArr.push(parseInt($this.val()));
                     if (yArr[0] + yArr[1] + yArr[2] === 15 || yArr[1] + yArr[2] + yArr[3] === 15 || yArr[0] + yArr[1] + yArr[3] === 15 || yArr[0] + yArr[2] + yArr[3] === 15) {
                         alert("O Wins!");
-                    } else if (ya === 9) {
-                    alert("Tie!");
-                    } else {
+                        game.player2Wins += 1;
+                    }
+                     else {
                         ya = ya + 1;
                         // console.log(ya);
                     }
-                };
+                }
+                else if (ya === 9){
+                    alert("Tie!");
+                 }
         }
     );
     };
+    // Clears the Board
     Game.prototype.Reset = function() {
     $("#reset").click(function() {
         $(".square").html("&nbsp;");
@@ -94,10 +91,14 @@ $(document).ready(function() {
         xArr = [];
         yArr = [];
     })
-}; Game.prototype.Kittens = function() {
+};
+// For best experience, please click the kitten button. It was difficult getting
+// the css to work so i forced it using Jquery.
+    Game.prototype.Kittens = function() {
     $("#kittens").click(function() {
             $(".jumbotron").css({
                                 'background-image' : 'url(' + catsss + ')',
+                                'background-size' : 'cover',
                                 'max-width' : '100%'
                             });
             $("#mittens").text("Tic Cat Toe");
@@ -117,16 +118,7 @@ $(document).ready(function() {
                     });
             })
     };
-    // set background image to grass
-    // // `Game.prototype.init` kicks off a new game with a board and two players
-    // Game.prototype.init = function() {
-    //     //
-    // };
-
-    // Player chooses side
-    // var Player = function(team) {
-
-    // };
+    
     game = new Game();
     game.nextPlayer(game);
     game.Reset();

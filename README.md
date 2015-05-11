@@ -13,12 +13,17 @@ This file is where you will document your project.
 * `git push` to update the repo on your gitHub account.
 * Delete this section, the `Workflow & Submission` section, of this file -- you don't need it in your documentation!
 
-
+########### NOTE!!! ######
+Please click the kittens in the dropdown menu before grading the project.
 ### Technologies Used
 *Bootstrap
-
+This was the most difficult part of the project, die to the fact that the jquery was deleting divs when I tried to use it.
+*Jquery
+Used it for css elements.
+*JavaScript, HTML
 ###Existing features
 *What features does your new tic-tac-toe app have?*
-
+It has a theme change, a reset button, and a novel get winner function.
 ###Planned features
 *What changes would you make to your project if you continued with it in the future?*
+I would add a win tracker, I already have the groundwork for it, but ran out of time.
