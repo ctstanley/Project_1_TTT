@@ -43,9 +43,10 @@ $(document).ready(function() {
     var catsss = "Kittens.jpg";
     var Game = function() {
             //Create a new instance of player 1 & 2
-            this.player1 = "X";
-            this.player2 = "O";
+            this.player1Wins = 0;
+            this.player2Wins = 0;
         }
+        // make more features tomorrow, good Job!! :D
         // Game.prototype.Winner = function() {
         //     if ($('.square').text() === "X") {
         //         console.log($(".square").val())
@@ -95,8 +96,25 @@ $(document).ready(function() {
     })
 }; Game.prototype.Kittens = function() {
     $("#kittens").click(function() {
-            $(".jumbotron").css('background-image', 'url(' + catsss + ')');
+            $(".jumbotron").css({
+                                'background-image' : 'url(' + catsss + ')',
+                                'max-width' : '100%'
+                            });
             $("#mittens").text("Tic Cat Toe");
+            $(".container").css({'max-height' : '100%',
+                                'max-width' : '50%'
+                            });
+            $("html").css('height', '100%');
+            $(".square").css({
+                            'height' : '140px',
+                            'width' : '140px',
+                            'font-size' : '120px',
+                            'text-align' : 'center'
+            });
+            $("body").css({
+                        'height' : '100%',
+                        'background-color' : '#78AB46'
+                    });
             })
     };
     // set background image to grass

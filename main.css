@@ -1,7 +1,5 @@
 /* Style Sheet */
-.img-responsive .carousel {
-	height:400px;
-}
+/* so I put a kitten bomb that reformats the website*/
 .square {
 	position: auto;
 	background: transparent;
@@ -16,6 +14,11 @@
 h1 {
 	text-align: center;
 }
-.container {
+html, 
+body {
+	margin: 0;
 	height: 100%;
+}
+.jumbotron {
+	max-width: 100%;
 }
